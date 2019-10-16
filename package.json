@@ -1,0 +1,49 @@
+{
+  "name": "umdgame",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx webpack --watch",
+    "serve": "live-server --watch=index.html,built/_bundled_code.js,built/compiled_styles.css --port=8080 --no-browser",
+    "build": "npx webpack --env.production"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.6.3",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/runtime": "^7.6.3",
+    "@types/bootstrap": "^4.3.1",
+    "@types/jquery": "^3.3.31",
+    "@types/jqueryui": "^1.12.7",
+    "@types/jss": "^9.5.8",
+    "@types/lodash": "^4.14.144",
+    "@types/react": "^16.9.5",
+    "@types/react-dom": "^16.9.1",
+    "babel-loader": "^8.0.6",
+    "bootstrap-scss": "^4.3.1",
+    "core-js": "^3.2.1",
+    "css-loader": "^3.2.0",
+    "file-loader": "^4.2.0",
+    "html-loader": "^0.5.5",
+    "mini-css-extract-plugin": "^0.8.0",
+    "react-bootstrap": "^1.0.0-beta.14",
+    "regenerator-runtime": "^0.13.3",
+    "requireg": "^0.2.2",
+    "sass": "^1.23.0",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.0",
+    "ts-loader": "^6.2.0",
+    "typescript": "^3.6.4",
+    "webpack": "^4.41.0",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.2",
+    "webpackbar": "^4.0.0"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.6.4"
+  }
+}

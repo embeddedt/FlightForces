@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "jsx": "react",
+    "module": "es6",
+    "target": "es2018",
+    "noImplicitThis": false,
+    "noImplicitReturns": true,
+    "noEmitOnError": true,
+    "allowSyntheticDefaultImports": false,
+    "removeComments": false,
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "allowUmdGlobalAccess": true,
+    "outDir": "intermediate",
+    "incremental": true,
+    "allowJs": true,
+    "typeRoots": [
+        "./node_modules/@types",
+        "./components/types"
+    ],
+    "baseUrl": "./",
+    "paths": {
+        "*": [
+            "node_modules/@types/*",
+            "*"
+        ]
+    }
+  },
+  "files": [
+      "main.ts"
+  ]
+}

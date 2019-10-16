@@ -1,0 +1,134 @@
+
+/* $font-family-sans-serif: 'PressStart2P'; */
+@import "components/gametools/gametools.scss";
+/* Project-specific CSS */
+
+
+
+@font-face {
+    font-family: 'PressStart2P';
+    src: url('/PressStart2P.eot');
+    src: url('/PressStart2P.eot?#iefix') format('embedded-opentype'),
+         url('/pressstart2p.woff2') format('woff2'),
+         url('/pressstart2p.woff') format('woff'),
+         url('/PressStart2P.ttf') format('truetype');
+
+}
+
+$handle-bottom-bar: true;
+
+body,
+html {
+    padding: 0;
+    margin: 0;
+}
+
+#gametools-container {
+    height: 100%;
+    width: 100%;
+}
+
+.gt-base-gauge {
+    height: 5rem;
+    width: 8rem;
+    display: inline-block;
+    text-align: center;
+    /*
+    h5 {
+        font-size: 1rem;
+        height: 1rem;
+        line-height: 1;
+        margin: 0;
+        width: 100%;
+    }
+    > div {
+        width: 100%;
+        height: 7rem;
+    }
+    */
+}
+
+.has-plane {
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    padding-top: 100%;
+    height: 0;
+}
+.plane-area {
+    $extra-height-factor: 10;
+    width: 100%;
+    padding-top: 144.4% * $extra-height-factor;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 98.5%;
+        left: 0;
+        width: 200%;
+        padding-top: 50%;
+        background-color: green;
+        /* background-image: url(grass.svg); */
+        background-repeat: repeat-x;
+        background-size: auto 100%;
+        box-sizing: content-box;
+        z-index: 1;
+    }
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 100%;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+    }
+    &, &::after {
+        background-image: url(sky.svg);
+        background-position: bottom left;
+        background-attachment: local;
+        background-size: 100% auto;
+    }
+}
+
+.plane {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    .plane-fire {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -70%);
+        font-size: 75%;
+    }
+    img {
+        width: 40%;
+        height: auto;
+    }
+}
+
+.gt-airplane-select-option .card-img {
+    flex-shrink: 0;
+
+}
+label.active .card-title::after {
+    display: inline-block;
+    content: '(selected)';
+    margin-left: 1ch;
+}
