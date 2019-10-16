@@ -40,8 +40,9 @@ const fileRule = {
     use: [
         {
             loader: 'file-loader',
+            
             options: {
-                publicPath: "built"
+                publicPath: ""
             }
         },
     ],
@@ -90,7 +91,7 @@ function getBaseConfig(env) {
 const configA = env => Object.assign({}, getBaseConfig(env), {
     module: mod, entry: ['./main.ts'], output: {
         filename: '_bundled_code.js',
-        path: path.resolve(__dirname, 'built')
+        path: __dirname
     }
 });
 const configB = env => Object.assign({}, getBaseConfig(env), {
@@ -108,7 +109,7 @@ const configB = env => Object.assign({}, getBaseConfig(env), {
                         loader: MiniCssExtractPlugin.loader,
                         options: {
                             filename: 'style_tmp.css',
-                            publicPath: "/built"
+                            publicPath: ""
                         },
                     },
                     'css-loader',
@@ -119,7 +120,7 @@ const configB = env => Object.assign({}, getBaseConfig(env), {
         ]
     }, entry: { compiled_styles: './styles.scss' }, output: {
         filename: 'style_tmp.css',
-        path: path.resolve(__dirname, 'built')
+        path: __dirname
     }
 });
 
