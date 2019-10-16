@@ -105,9 +105,6 @@ class PlaneBackground extends React.Component<{ planeX: number; planeY: number; 
                     this.highestAttainedAltitude = Math.max(this.highestAttainedAltitude, this.getAltitude());
                     this.highestAttainedSpeed = Math.max(this.highestAttainedSpeed, this.getMPHSpeed());
                 }
-                /* HAX */
-                this.highestAttainedSpeed = 500;
-                this.highestAttainedAltitude = 30000;
                 const _self =this;
                 let finishedGame = true;
                 if(this.highestAttainedAltitude < 30000)

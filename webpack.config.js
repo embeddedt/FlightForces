@@ -41,7 +41,7 @@ const fileRule = {
         {
             loader: 'file-loader',
             options: {
-                publicPath: "/built"
+                publicPath: "built"
             }
         },
     ],
