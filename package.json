@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npx webpack --watch",
-    "serve": "live-server --watch=index.html,built/_bundled_code.js,built/compiled_styles.css --port=8080 --no-browser",
+    "serve": "live-server --watch=index.html,_bundled_code.js,compiled_styles.css --port=8080 --no-browser",
     "build": "npx webpack --env.production"
   },
   "author": "",

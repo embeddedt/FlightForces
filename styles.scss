@@ -28,9 +28,13 @@ html {
     width: 100%;
 }
 
+.gauge-row > div {
+    margin: 0 auto;
+}
 .gt-base-gauge {
-    height: 5rem;
-    width: 8rem;
+    $width: 7rem;
+    height: $width * 5 / 8;
+    width: $width;
     display: inline-block;
     text-align: center;
     /*

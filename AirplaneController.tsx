@@ -130,13 +130,17 @@ class PlaneBackground extends React.Component<{ planeX: number; planeY: number; 
                     <ValueCheckpoint value={this.highestAttainedSpeed} minimum={500} title="Highest speed safely attained thus far" unit="mph"/>
                 </ul>
                 <p></p>
-                {didCrash ? "The Department of Transportation is considering whether they will fire you or not." : null}
+                Here are the materials you used:
+                <p></p>
+                {this.props.airplaneComponent.renderListOfMaterials()}
                 <p></p>
                 Remember, not all of these components work well with one another. Some components may appear to be useless in one
                 combination but may work better in another one. You have to experiment and see what works well with what.
                 <p></p>
                 Also, it's difficult to maintain high speed and high altitude at the same time. Work toward attaining one of them first,
                 then try to attain the other one. The game will remember what you previously achieved.
+                <p></p>
+                {didCrash ? "By the way, the Department of Transportation is considering whether they will fire you or not." : null}
                 </div>).display();
                 new SetBackground(require('./customizations/factory.svg')).display();
                 this.props.airplaneComponent.setState({ open: true, customTitle: null });
@@ -304,16 +308,15 @@ class PlaneBackground extends React.Component<{ planeX: number; planeY: number; 
         for(var i = 0; i < 20; i++){
             fireParticles.push(<div className="particle"></div>);
         }
-        return <><div className="container">
-            <div className="row">
-                <div className="col d-inline-flex justify-content-center">
+        return <>
+            <div className="gauge-row row no-gutters">
+                <div className="col-xs d-inline-flex justify-content-center">
                     <GaugeComponent ref={this.xGaugeRef} value={0} min={0} max={500} label="mph" title="Speed" />
                 </div>
-                <div className="col d-inline-flex justify-content-center">
+                <div className="col-xs d-inline-flex justify-content-center">
                     <GaugeComponent ref={this.yGaugeRef} value={0} min={0} max={30000} label="ft" title="Altitude" />
                 </div>
             </div>
-        </div>
             <div className="has-plane">
                 <div className="plane-area" ref={this.divRef}></div>
                 <div className="plane"><img src={require('./airliner.png')} alt="plane" ref={this.planeRef}></img><div className="fire plane-fire" ref={this.fireRef} style={{ display: this.state.exploded ? null : 'none'}}>
@@ -530,6 +533,13 @@ class AirplaneComponent extends React.Component<{ displayedItem: DisplayedItem; 
         }, 3000); 
         /* Will be re-opened by PlaneBackground */
     }
+    renderListOfMaterials() {
+        return <ul style={{textAlign: "left", display: "inline-block"}}>
+            {Object.keys(this.currentConfigs).map((key) => {
+                return <li><b>{key}</b>: {AirplaneComponent.controlsArray[key][this.currentConfigs[key]].title.split(" ")[0]}</li>
+            })}
+        </ul>;
+    }
     render() {
         const { Modal, Tabs, Tab } = GameTools.assertProperty(window, "ReactBootstrap");
         return <div className={`modal-content`}>
@@ -560,6 +570,8 @@ class AirplaneComponent extends React.Component<{ displayedItem: DisplayedItem; 
                 </div>
                 <div style={{ display: !this.state.open ? null : 'none'}}>
                     <PlaneBackground airplaneComponent={this} ref={this.backgroundRef} planeX={this.state.planeX} planeY={this.state.planeY} ySpeed={this.state.ySpeed} xSpeed={this.state.xSpeed} />
+                    <hr/>
+                    {this.renderListOfMaterials()}
                 </div>
             </Modal.Body>
         </div>;
