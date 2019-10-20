@@ -152,7 +152,7 @@ class PlaneBackground extends React.Component<{ planeX: number; planeY: number; 
                     this.forceExploded = false;
                     this.setNewTitle = false;
                     this.badComponent = null;
-                    this.props.airplaneComponent.currentConfigs[this.revertComponent.type] = this.revertComponent.index;
+                    //this.props.airplaneComponent.currentConfigs[this.revertComponent.type] = this.revertComponent.index;
                     this.props.airplaneComponent.forceUpdate();
                     this.revertComponent = null;
                     this.setState({ exploded: false });
